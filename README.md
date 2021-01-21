@@ -4,7 +4,7 @@ Use this Visual Studio Code extension to track your favorite crypto currencies y
 
 Simply start and stop the tracker from the command palette:
 
-![Command Palette](https://github.com/ptijsma/bitvavotracker/blob/main/images/commands.png)
+![Command Palette](https://raw.githubusercontent.com/ptijsma/bitvavotracker/main/images/commands.png)
 
 ## Features
 
@@ -12,7 +12,7 @@ Simply start and stop the tracker from the command palette:
 * Specify a low and high color
 * Possibility to define trigger values (you'll receive a warning when the wallet value reaches this value)
 
-![example](https://github.com/ptijsma/bitvavotracker/blob/main/images/statusbarexample.png)
+![example](https://raw.githubusercontent.com/ptijsma/bitvavotracker/main/images/statusbarexample.png)
 
 ## Extension Settings
 
