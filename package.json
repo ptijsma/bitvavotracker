@@ -1,0 +1,113 @@
+{
+	"name": "bvtracker",
+	"displayName": "Bitvavo Tracker",
+	"description": "Small extension to track your Bitvavo wallet",
+	"publisher": "PeterTijsma",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/ptijsma/bitvavotracker"
+	},
+	"version": "1.0.0",
+	"icon": "images/bv128x128.png",
+	"engines": {
+		"vscode": "^1.52.0"
+	},
+	"categories": [
+		"Other"
+	],
+	"activationEvents": [
+		"onCommand:bvtracker.startTicker"
+	],
+	"main": "./extension.js",
+	"contributes": {
+		"configuration": {
+			"title": "Bitvavo Tracker",
+			"properties": {
+				"bvtracker.apiKey": {
+					"type": "string",
+					"default": "",
+					"description": "The Bitvavo key to use. See https://account.bitvavo.com/user/api"
+				},
+				"bvtracker.apiSecret": {
+					"type": "string",
+					"default": "",
+					"description": "The Bitvavo secret to use. See https://account.bitvavo.com/user/api"
+				},
+				"bvtracker.baseCurrency": {
+					"type": "string",
+					"default": "",
+					"description": "The base currency to use. I.e. EUR"
+				},
+				"bvtracker.cryptoCurrencies": {
+					"type": "string",
+					"default": "",
+					"description": "The cryptocurrencies to show in the statusbar. Seperate each currency with a semi-colon. I.e. BTC;NANO"
+				},
+				"bvtracker.updateInterval": {
+					"type": "integer",
+					"default": 5000,
+					"description": "Specify the interval to update the tracker in ms. Default is 5000 (5 sec.)"
+				},
+				"bvtracker.hideZeroValues": {
+					"type": "boolean",
+					"default": false,
+					"description": "When ticked, the currencies without values are hidden (to save space on the statusbar)"
+				},
+				"bvtracker.showRates": {
+					"type": "boolean",
+					"default": false,
+					"description": "When ticked, shows the currency rate next to the value"
+				},
+				"bvtracker.lowColor": {
+					"type": "string",
+					"default": "#FBBBBD",
+					"description": "The color to use when price is lower since the last update"
+				},
+				"bvtracker.highColor": {
+					"type": "string",
+					"default": "#8BD996",
+					"description": "The color to use when price is higher since the last update"
+				},
+				"bvtracker.otherColor": {
+					"type": "string",
+					"default": "#DDDDDD",
+					"description": "The color to use for other elements"
+				},
+				"bvtracker.totalWarningThresholdTriggers": {
+					"type": "string",
+					"default": "",
+					"description": "Semi-colon seperated list of values to use as threshold triggers. When the total value reaches a threshold, a warning message is displayed."
+				}
+			}
+		},
+		"commands": [
+			{
+				"command": "bvtracker.startTicker",
+				"title": "Bitvavo: Start ticker"
+			},
+			{
+				"command": "bvtracker.stopTicker",
+				"title": "Bitvavo: Stop ticker"
+			}
+		]
+	},
+	"scripts": {
+		"lint": "eslint .",
+		"pretest": "npm run lint",
+		"test": "node ./test/runTest.js"
+	},
+	"devDependencies": {
+		"@types/vscode": "^1.52.0",
+		"@types/glob": "^7.1.3",
+		"@types/mocha": "^8.0.0",
+		"@types/node": "^12.11.7",
+		"eslint": "^7.9.0",
+		"glob": "^7.1.6",
+		"mocha": "^8.1.3",
+		"typescript": "^4.0.2",
+		"vscode-test": "^1.4.0"
+	},
+	"dependencies": {
+		"bitvavo": "^1.2.0"
+	}
+}
